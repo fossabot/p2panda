@@ -9,7 +9,8 @@
     "clear": "rimraf ./lib ./wasm-web ./wasm-node",
     "lint": "eslint --ext .ts .",
     "mock-node-rpc": "open-rpc-mock-server --port 2020 > ./mock-server.log",
-    "test": "run-p --race mock-node-rpc test:run",
+    "template-openrpc": "npx ts-node ./test/test-setup.ts",
+    "test": "npm run template-openrpc && run-p --race mock-node-rpc test:run",
     "test:prepare": "run-s --silent wasm webpack:node",
     "test:mocha": "TS_NODE_COMPILER_OPTIONS='{\"strict\": false}' mocha -r ts-node/register -r tsconfig-paths/register -r @babel/register ./test/**/*.test.ts",
     "test:run": "run-s clear test:prepare test:mocha",
@@ -40,6 +41,7 @@
   },
   "homepage": "https://github.com/p2panda/p2panda#readme",
   "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^9.0.9",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/register": "^7.12.10",

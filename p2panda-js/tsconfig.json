@@ -2,6 +2,7 @@
   "extends": "@tsconfig/node12/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "esModuleInterop": true,
     "noImplicitAny": false,
     "outDir": "./lib",
     "paths": {
@@ -9,6 +10,7 @@
       "wasm-web": ["./wasm-web"],
       "wasm-node": ["./wasm-node"]
     },
+    "resolveJsonModule": true,
     "lib": ["dom"],
     "sourceMap": true,
     "target": "es5",
