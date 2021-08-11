@@ -32,7 +32,9 @@ describe('Session', () => {
   it('gets next entry args', async () => {
     const session = new Session('http://localhost:2020');
     const nextEntryArgs = await session.getNextEntryArgs(PUBLIC_KEY, SCHEMA);
-    expect(nextEntryArgs.entryHashSkiplink).to.equal('');
+    expect(nextEntryArgs.entryHashSkiplink).to.equal(
+      data.thirdEntryArgs.entryHashSkiplink,
+    );
     expect(nextEntryArgs.entryHashBacklink).to.equal(
       data.thirdEntryArgs.entryHashBacklink,
     );
