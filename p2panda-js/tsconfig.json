@@ -3,6 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./lib",
+    "declaration": true,
+    "declarationMap": true,
     "paths": {
       "~/*": ["./src/*"],
       "wasm-web": ["./wasm-web"],
