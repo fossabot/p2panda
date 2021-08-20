@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "browser": "lib/index.min.js",
   "scripts": {
-    "build": "run-s clear wasm webpack",
+    "build": "run-s clear wasm webpack bundle-ts-declaration",
+    "bundle-ts-declaration": "dts-bundle --main lib/index.d.ts --name 'p2panda-js' --out index.d.ts --removeSource",
     "clear": "rimraf ./lib ./wasm-web ./wasm-node",
     "lint": "eslint --ext .ts .",
     "test": "run-s clear test:prepare test:mocha",
@@ -51,6 +52,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^7.0.0",
+    "dts-bundle": "^0.7.3",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-loader": "^4.0.2",
